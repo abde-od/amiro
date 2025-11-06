@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestor IPTV - Enjoy Top Quality Streaming</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style type="text/css">
+    
+                 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color:#e63946;/* b0b0b0  white  1a1f3a     330a0a      #FF0505    */
+  --dark-bg: #1a1410;
+  --dark-secondary: #330a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #fffff0;
+  --accent-yellow: #fdd835;
+  --accent-green: #81c784;
+  --accent-cyan:#00bcd4 ;
+  --text-muted: #b0b0b0;
+  --accent-teal: #36A630;
+    --text-light: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+}  /*hero control */
+
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* الطبقة الملونة الشفافة */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1a1410;
+  background: rgba(0, 0, 0, 0.3); /* ← غطاء أسود 50% لتعتيم الصور */
+  z-index: 3; /* اجعلها فوق الصور */
+  pointer-events: none; /* حتى لا تمنع النقر على الأزرار أو الروابط */
+}
+
+
+
+
+
+
+/* الحاوية التي فيها الصور */
+.filmstrip-container {
+  position: relative;
+  z-index: 1; /* تحت الطبقة */
+}
+
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 25px;
+  left: 0;
+  right: 0;
+  background: #1a1410; /*rgba(10, 14, 39, 0.95)*/;
+  background: rgba(26, 20, 16, 0.7);
+
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(230, 57, 70, 0.1);
+  z-index: 1000;
+  padding: 30px 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.icon-btn:hover {
+  color: var(--primary-color);
+}
+
+.hero-price .icon {
+  font-size: 2.5rem; /* make it big*/
+}
+.hero-price .pricing-price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--primary-color);
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Button Styles */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #d62828;
+  transform: translateY(-2px);
+}
+
+.rotating-border-btn {
+    position: relative;
+    padding: 1rem 2.4rem; /* #0f172aنسبية أكثر */
+    background: var(--primary-color);
+    color:#fff ;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+     align-items: center;
+  }
+
+  /* الإطار المتحرك */
+  .rotating-border-btn::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border-radius: 0.8rem;
+    background:conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+    z-index: 0;
+    transform: rotate(0deg);
+    animation: none;
+    align-items: center;
+  }
+
+  /* الطبقة الداخلية        #0f172a   */
+  .rotating-border-btn::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    background:var(--primary-color) ;
+    border-radius: 0.5rem;
+    z-index: 1;
+    transition: background 0.4s ease;
+    align-items: center;
+  }
+
+  .rotating-border-btn span {
+    position: relative;
+    z-index: 2;
+    align-items: center;
+  }
+
+  /* يبدأ الدوران عند المرور */
+  .rotating-border-btn:hover::before {
+    animation: spinBorder 2s linear infinite;
+  }
+
+  .rotating-border-btn:hover::after {
+    background: #1e293b;
+  }
+
+  .rotating-border-btn:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes spinBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* 🔹 استجابة للشاشات الصغيرة */
+  @media (max-width: 600px) {
+    .rotating-border-btn {
+      font-size: 0.9rem;
+      padding: 0.8rem 2rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .rotating-border-btn {
+      font-size: 0.85rem;
+      padding: 0.7rem 1.8rem;
+    }
+  }
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+.filmstrip-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.filmstrip {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.filmstrip-1 {
+  top: 10%;
+  left: 50;
+  width: 200%;
+  height: 300 px;
+}
+
+.filmstrip-2 {
+  top: 40%;
+  left: 0;
+  width: 200%;
+  animation: scroll-right 35s linear infinite;
+}
+
+.filmstrip-3 {
+  top: 70%;
+  left: 0;
+  width: 200%;
+  animation: scroll-left 40s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+} 
+
+
+
+.film-item {
+  flex-shrink: 0;
+  width: 250px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.85) 0%, rgba(10, 14, 39, 0.7) 50%, rgba(10, 14, 39, 0.85) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-label {
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.label {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 12px 20px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.hero-features {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*hero section*/
+
+.hero-section {
+  background: url('action27.jpg') center/cover no-repeat;
+  color: #fff;
+  width: 220vh;
+  min-height: 100vh; /*  الشاشة كاملة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 80px 20px;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* طبقة شفافة فوق الصورة */
+  z-index: 1;
+}
+.hero-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
+.btnt {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+
+/* Features Section */
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.feature-item svg {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.features {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-card {
+   background: rgba(20, 20, 30, 0.9);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, #00ffff, #ff00ff, #007bff);
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      filter: blur(25px);
+    }
+    .feature-card:hover::before {
+      opacity: 0.3;
+    }
+
+.feature-card:hover {
+   box-shadow: 0 0 25px rgba(255, 50, 50, 0.9),
+            0 0 60px rgba(255, 0, 0, 0.3);
+     border-color: rgba(255, 80, 80, 0.6);
+
+      transform: translateY(-8px) scale(1.03);
+      border-color: rgba(0, 255, 255, 0.4);
+}
+
+.feature-icon {
+   font-size: 3rem;
+      margin-bottom: 15px;
+      transition: all 0.4s ease;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+    .feature-card:hover .feature-icon {
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+      transform: scale(1.2);
+    }
+
+/* shop now */
+
+.link-arrow {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.link-arrow:hover {
+    color: var(--accent-yellow);
+}
+/* Explore our item     */
+
+.explore-link {
+    display: block;
+    text-align: center;
+    color: var(--accent-teal);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 2rem 0;
+    transition: color 0.3s;
+}
+
+.explore-link:hover {
+    color: var(--accent-yellow);
+}
+
+
+
+/* image place holder */
+
+
+/*    content text   */
+
+
+.content-text h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+.content-text p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+
+
+    .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+.benefits-list li {
+    color: var(--text-muted);
+    margin: 0.5rem 0;
+}
+
+    /*  content section */
+
+    /* القسم الرئيسي */
+.content-section {
+  display: flex;
+  align-items: center;        /* توسيط عمودي داخل الصف */
+  justify-content: space-between;
+  gap: 50px;                  /* مسافة بين الصورة والنص */
+  padding: 60px 100px;        /* هوامش داخلية جميلة */
+ 
+}
+
+.content-image img {
+    width: 300px;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  .content-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+.content-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+.image-placeholder {
+  width: 10%;
+  height: 400px;
+  background: #222;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+
+.content-text {
+    order: 1;
+}
+
+.content-text .label {
+  display: inline-block;
+  font-weight: bold;
+  color: #e63946; 
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.content-section {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Pricing Section */
+.pricing {
+    padding: 4rem 0;
+    background-color: var(--secondary-dark);
+}
+
+.pricing h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.pricing-card {
+    /*background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s;  */
+
+
+  position: relative;
+  background: url("action21.jpg") center/cover no-repeat; /* ← صورتك هنا */
+  border-radius: 1rem;
+  color: #fff;
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+  z-index: 0;
+}
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9); /* ← غطاء أسود شفاف */
+  z-index: 1;
+}
+/* النصوص فوق الغطاء */
+.pricing-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-card.featured {
+    border-color: var(--accent-red);
+    transform: scale(1.05);
+}
+
+.pricing-header {
+    background-color: var(--accent-teal);
+    color: var(--primary-dark);
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.pricing-image {
+    padding: 1rem;
+}
+
+.pricing-duration {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.pricing-price {
+    text-align: center;
+    font-size: 2.5rem;
+    color:red; /* var(--accent-red);  */
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.pricing-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-features li {
+    padding: 0.5rem 0;
+    color:white; /* var(--text-muted); */
+}
+.pricing-features .check {
+  color: #22c55e; /* أخضر */
+  font-weight: bold;
+  margin-right: 8px;
+  text-align: right;
+}
+
+
+.pricing-features .cross {
+  color: #ef4444; /* أحمر */
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.pricing-card .btn {
+    width: calc(100% - 3rem);
+    margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr; /* كل بطاقة تأخذ صف كامل */
+  }
+
+  .pricing {
+    padding: 2rem 1rem;
+  }
+
+  .pricing h2 {
+    font-size: 1.8rem;
+  }
+
+  .pricing-card {
+    text-align: center;
+  }
+
+  .pricing-card.featured {
+    transform: none; /* إزالة التكبير على الموبايل لتفادي التزاحم */
+  }
+
+  .pricing-price {
+    font-size: 1.8rem;
+  }
+
+  .pricing-note {
+    font-size: 0.85rem;
+  }
+
+  .pricing-card .btn {
+    width: 80%;
+    margin: 1rem auto;
+  }
+}
+
+/* للشاشات الصغيرة جدًا (الهواتف القديمة) */
+@media (max-width: 480px) {
+  .pricing h2 {
+    font-size: 1.5rem;
+  }
+
+  .pricing-price {
+    font-size: 1.5rem;
+  }
+
+  .pricing-features li {
+    font-size: 0.9rem;
+  }
+
+  .pricing-card .btn {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}
+
+/* About Section */
+.about {
+  position: relative;
+  z-index: 10;
+  background: var(--dark-bg);
+  padding: 80px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.about-feature svg {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.about-visual {
+  position: relative;
+  height: 500px;
+}
+
+.stats-card {
+  position: absolute;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.stats-card-1 {
+  background: var(--accent-yellow);
+  color: #333;
+  top: 20px;
+  right: 40px;
+  width: 140px;
+}
+
+.stats-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.stats-number {
+  font-size: 32px;
+}
+
+.stats-card-2 {
+  background: var(--accent-green);
+  color: #333;
+  bottom: 100px;
+  left: 0;
+  width: 140px;
+}
+
+.google-rating {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.device-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(230, 57, 70, 0.2);
+}
+
+.device-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-visual {
+    height: 400px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .hero-features {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .feature-item {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .stats-card-1 {
+    top: 10px;
+    right: 10px;
+  }
+
+  .stats-card-2 {
+    bottom: 150px;
+    left: 10px;
+  }
+
+  .google-rating {
+    bottom: 20px;
+    right: 10px;
+  }
+
+  .device-image {
+    width: 200px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    gap: 15px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-label {
+    font-size: 10px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .filmstrip {
+    gap: 5px;
+  }
+
+  .film-item {
+    width: 120px;
+    height: 120px;
+  }
+}
+  
+
+  @media (max-width: 768px) {
+  .content-section {
+    flex-direction: column;  /* تصبح عمودية */
+    padding: 40px 20px;
+  }
+
+  .content-text {
+    flex: unset;
+    width: 100%;
+  }
+
+  .image-placeholder {
+    height: 250px;
+  }
+} 
+
+   /* footer */
+
+    footer {
+      background-color: #000;
+      border-top: 1px solid #1f2937;
+      padding: 3rem 1rem;
+      color: #9ca3af;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #ef4444; /* red-500 */
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1f2937;
+      padding-top: 2rem;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        text-align: center;
+      }
+    }
+
+
+
+</style>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">OTT</span>
+                    <span class="logo-text">VIP</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Subscription</a>
+                    <a href="#" class="nav-link">Channel List</a>
+                    <a href="#" class="nav-link">FAQ</a>
+                    <a href="#" class="nav-link">About Us</a>
+                    <a href="#" class="nav-link">Pages</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge">0</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="window.open('https://wa.me/+213798262698', '_blank')">Get Started</button>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Filmstrip Background -->
+    <section class="hero">
+        <div class="filmstrip-container">
+            <div class="filmstrip filmstrip-1">
+                
+  
+
+                <div class="film-item"><img src="action1.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action2.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action3.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action4.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action5.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action6.jpg" alt="action1" width="200" height="300"></div> 
+            </div>
+            <div class="filmstrip filmstrip-2">
+                <div class="film-item"><img src="action7.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action8.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action9.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action10.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action11.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action12.jpg" alt="action1" width="200" height="300"></div>
+            </div>
+            <div class="filmstrip filmstrip-3">
+                <div class="film-item"><img src="action13.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action14.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action15.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action16.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action17.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action18.jpg" alt="action1" width="200" height="300"></div>
+            </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="container">
+                <span class="hero-label">FAST IPTV CONNECTION</span>
+                <h1 class="hero-title">Enjoy Top Quality Streaming With  </h1><h1 class="hero-title" style="color: red;">OTT  IPTV</h1>
+                <p class="hero-subtitle">Includes all your favorite channels with local news, live sports, weather, and more.</p>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search your content here" class="search-input">
+                    <button class="btn btn-primary">Search Now</button>
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Connect several devices at once</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>25,000 worldwide channels 4K</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>500K new and old movies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-label">WHO WE ARE</span>
+                    <h2 class="section-title">We are proud to offer the best IPTV subscriptions</h2>
+                    <p class="section-description">Our Best IPTV subscriptions offer high-quality streaming, with no buffering or lagging. You can easily navigate through channels using our user-friendly interface and enjoy a seamless experience.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Connect several devices at once</span>
+                        </div>
+                        <div class="about-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Gig download speeds available everywhere</span>
+                        </div>
+                        <div class="about-feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Wall-to-wall wifi connection</span>
+                        </div>
+                    </div>
+
+                    <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"> <span>Subscribe Now </span></button>
+                </div>
+
+                <div class="about-visual">
+                    <div class="stats-card stats-card-1">
+                        <span class="stats-label">ACTIVE SUBSCRIPTION</span>
+                        <span class="stats-number">5.3K</span>
+                    </div>
+                    <div class="stats-card stats-card-2">
+                        <span class="stats-label">FIVE STAR REVIEWS</span>
+                        <span class="stats-number">500K</span>
+                    </div>
+                    <div class="google-rating">
+                        <img src="action20.png" alt="Google">
+                                                              <!-- <span class="rating-text">Ratings 4.7</span> -->
+                    </div>
+                    <div class="device-image">
+                        
+                        <img src="tvremote.jpg" alt="TV Remote">
+                    
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+      <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <span class="label" >FEATURES</span>
+            <h2>What makes us different</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📺</div>
+                    <h3>TV & Streaming</h3>
+                    <p>Catch the biggest games and PPV events. Grab a big bowl of popcorn and live the excitement.</p>
+                    <a href="#" class="link-arrow">Shop Now →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Selected Contents</h3>
+                    <p>Catch the biggest games and PPV events. Grab a big bowl of popcorn and live the excitement.</p>
+                    <a href="#" class="link-arrow">View Content →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Go Mobile</h3>
+                    <p>Catch the biggest games and PPV events. Grab a big bowl of popcorn and live the excitement.</p>
+                    <a href="#" class="link-arrow">Download App →</a>
+                </div>
+            </div>
+
+            <a href="#" class="explore-link">Explore All Our Features →</a>
+
+          <div class="content-section">
+    
+
+    <div class="content-text">
+           <div class="content-image">
+                 <img src="action28.jpg" alt="action1" style="width:100vh; height:60vh;">
+               </div>
+              
+      <span class="label">OUR CONTENT</span>
+      <h3>More to Stream</h3>
+      <p>With our large and comprehensive collection of TV channels, never miss your favorite sports games and TV shows. You can be the first to see your new episode.</p>
+      <p>Watch exclusive sports channels every week. Get top-rated TV customer service. Bundle your favorite services.</p>
+      <ul class="benefits-list">
+        <li>✓ 25,000 worldwide channels 4K</li>
+        <li>✓ 500K new and old movies</li>
+      </ul>
+      <button class="btn btn-primary">View Content List</button>
+    </div>
+  </div>
+        </div>
+    </section>
+        <span> <h1 class="" style="text-align: center;" >Enjoy watching movies,series,shows,anim and more</h1></span>
+    <section class="hero">
+      
+          
+        <div class="filmstrip-container">
+           <div class="filmstrip filmstrip-1--">
+                
+  
+
+                <div class="film-item"><img src="action1.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action2.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action3.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action4.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action5.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action6.jpg" alt="action1" width="200" height="300"></div> 
+            </div>
+           </div>
+    </section>
+
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+          <div class="content-text" style=" display: flex; justify-content: center;"  >  <span class="label" >PRICING PLANS</span></div>
+            <h2>Our Golden Pricing Plans</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                    <div class="pricing-image">
+                         <img src="action22.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
+                    </div>
+                    <div class="pricing-duration">3 Months</div>
+                    <div class="pricing-price">$34.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li> Live TV and EPG Guide  <span class="check">✓</span></li>
+                        <li> Movies and VOD Shows    <span class="check">✓</span></li>
+                        <li> Compatible with all devices<span class="check">✓</span></li>
+                        <li> Anti-Freeze Technology  <span class="cross">✗</span></li>
+                        <li> PPV and Sports Events  <span class="cross">✗</span></li>
+                    </ul>
+                    <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"><span> Subscribe Now </span></button>
+                </div>
+
+                <div class="pricing-card featured" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                    <div class="pricing-image">
+                       <img src="action23.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                    </div>
+                    <div class="pricing-duration">6 Months</div>
+                    <div class="pricing-price">$54.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li > Live TV and EPG Guide        <span class="check">✓</span></li>
+                        <li > Movies and VOD Shows         <span class="check">✓</span></li>
+                        <li > Compatible with all devices  <span class="cross">✗</span></li>
+                        <li > Anti-Freeze Technology       <span class="check">✓</span></li>
+                        <li >  PPV and Sports Events       <span class="check">✓</span></li>
+                    </ul>
+                    <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"> <span> Subscribe Now </span></button>
+                </div>
+
+
+                  <div class="pricing-card featured" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                       <div class="pricing-image">
+                       <img src="action24.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                    </div>
+                    <div class="pricing-duration">6 Months</div>
+                    <div class="pricing-price">$54.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li> Live TV and EPG Guide    <span class="check">✓</span></li>
+                        <li> Movies and VOD Shows      <span class="check">✓</span></li>
+                        <li> Compatible with all devices<span class="check">✓</span></li>
+                        <li> Anti-Freeze Technology   <span class="cross">✗</span></li>
+                        <li> PPV and Sports Events     <span class="check">✓</span></li>
+                    </ul>
+                   <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"><span > Subscribe Now </span></button>
+                </div>
+            </div>
+        </div>
+
+
+         <div class="container">
+          <div class="content-text" style=" display: flex; justify-content: center;"  >  <span class="label" >PRICING PLANS</span></div>
+            <h2>Our Silver Pricing Plans</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                    <div class="pricing-image">
+                         <img src="action25.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
+                    </div>
+                    <div class="pricing-duration">3 Months</div>
+                    <div class="pricing-price">$34.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li> Live TV and EPG Guide  <span class="check">✓</span></li>
+                        <li> Movies and VOD Shows    <span class="check">✓</span></li>
+                        <li> Compatible with all devices<span class="check">✓</span></li>
+                        <li> Anti-Freeze Technology  <span class="cross">✗</span></li>
+                        <li> PPV and Sports Events  <span class="cross">✗</span></li>
+                    </ul>
+                    <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"><span> Subscribe Now </span></button>
+                </div>
+
+                <div class="pricing-card featured" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                    <div class="pricing-image">
+                       <img src="action26.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;  ">
+
+
+
+     
+
+                    </div>
+                    <div class="pricing-duration">6 Months</div>
+                    <div class="pricing-price">$54.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li > Live TV and EPG Guide        <span class="check">✓</span></li>
+                        <li > Movies and VOD Shows         <span class="check">✓</span></li>
+                        <li > Compatible with all devices  <span class="cross">✗</span></li>
+                        <li > Anti-Freeze Technology       <span class="check">✓</span></li>
+                        <li >  PPV and Sports Events       <span class="check">✓</span></li>
+                    </ul>
+                    <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"> <span> Subscribe Now </span></button>
+                </div>
+
+
+                  <div class="pricing-card featured" style="text-align:center;">
+                    <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
+                       <div class="pricing-image">
+                       <img src="action27.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                    </div>
+                    <div class="pricing-duration">6 Months</div>
+                    <div class="pricing-price">$54.99</div>
+                    <p class="pricing-note">No Auto-renew</p>
+                    <ul class="pricing-features">
+                        <li> Live TV and EPG Guide    <span class="check">✓</span></li>
+                        <li> Movies and VOD Shows      <span class="check">✓</span></li>
+                        <li> Compatible with all devices<span class="check">✓</span></li>
+                        <li> Anti-Freeze Technology   <span class="cross">✗</span></li>
+                        <li> PPV and Sports Events     <span class="check">✓</span></li>
+                    </ul>
+                   <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"><span > Subscribe Now </span></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="hero">
+    <div class="container">
+      
+        <div class="hero-section">
+  <div class="hero-content">
+    <span class="label">TESTING</span>
+    <h1 class="section-title">Start now. Don't hesitate to test our service</h1>
+    <p>Test account. Get full access to all channels and VOD</p>
+
+    <div class="hero-price">
+      <span class="icon">💻</span>
+      <span class="pricing-price">$14.99</span>
+      <span class="period">/month</span>
+    </div>
+
+    <p class="guarantee">1 Month Test Satisfied Or Refunded.</p>
+
+    <div class="hero-buttons">
+      <button class="btnt btn-primary">Test Now Our Service</button>
+      <button class="btnt btn-secondary">Call: +213 798262698 for any enquiry</button>
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+</section>
+
+
+
+
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 OTT VIP IPTV. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+    <script src="script.js">
+        
+
+                             // Mobile Menu Toggle
+const menuToggle = document.getElementById("menuToggle")
+const navMenu = document.querySelector(".nav-menu")
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active")
+  menuToggle.classList.toggle("active")
+})
+
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active")
+    menuToggle.classList.remove("active")
+  })
+})
+
+// Search functionality
+const searchBtn = document.querySelector(".search-bar .btn-primary")
+const searchInput = document.querySelector(".search-input")
+
+searchBtn.addEventListener("click", () => {
+  const query = searchInput.value
+  if (query.trim()) {
+    console.log("Searching for:", query)
+    // Add your search logic here
+  }
+})
+
+// Cart functionality
+const cartBtn = document.querySelector(".cart-btn")
+const cartBadge = document.querySelector(".cart-badge")
+const cartCount = 0
+
+cartBtn.addEventListener("click", () => {
+  console.log("Cart clicked")
+  // Add your cart logic here
+})
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  })
+})
+
+// Subscribe button functionality
+const subscribeBtn = document.querySelector(".about .btn-primary")
+subscribeBtn.addEventListener("click", () => {
+  console.log("Subscribe clicked")
+  // Add your subscription logic here
+})
+
+
+    </script>
+</body>
+</html>
