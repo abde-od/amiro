@@ -1230,6 +1230,117 @@ body {
       }
     }
 
+    /*   responsivity  */
+
+
+    /* للهيدر في الجوال */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #000;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.active + .nav-menu {
+    display: flex;
+  }
+
+  .header-content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .hero-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .feature-card {
+    margin-bottom: 20px;
+  }
+
+  .content-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pricing-card {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+}
+
+
 
 
 </style>
