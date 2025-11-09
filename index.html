@@ -313,7 +313,8 @@ body {
 }
 
 .filmstrip {
-  position: absolute;
+  display: flex;
+  position: absolute; 
   display: flex;
   gap: 10px;
   width: max-content;
@@ -362,18 +363,32 @@ body {
 
 
 .film-item {
+
+  
   flex-shrink: 0;
   width: 250px;
   height: 200px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);  
 }
 
 .film-item img {
+
+
   width: 100%;
-  height: 100%;
+  max-width: 180px;   /* حجم مرن */
+  height: auto;
+  border-radius: 15px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+  gap:10px;
+    /*  width: 100%;
+  max-width: 180px;   
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease; */
 }
 
 .hero-overlay {
@@ -1178,6 +1193,9 @@ body {
   .feature-card {
     margin-bottom: 20px;
   }
+  .filmstrip {
+    gap: 8px;
+  }
 
   .footer {
     text-align: center;
@@ -1204,6 +1222,11 @@ body {
 
   .menu-toggle.active + .nav-menu {
     display: flex;
+  }
+
+  .film-item img {
+    max-width: 120px;
+    border-radius: 10px;
   }
 }
 
@@ -1269,6 +1292,11 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
+  }
+
+  .film-item img {
+    max-width: 90px;
+    border-radius: 8px;
   }
 }
 
