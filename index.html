@@ -317,7 +317,7 @@ body {
   display: flex;
   gap: 10px;
   width: max-content;
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 25s linear infinite;
 }
 
 .filmstrip-1 {
@@ -740,7 +740,7 @@ body {
 
 
   position: relative;
-  background: url("action21.jpg") center/cover no-repeat; /* ← صورتك هنا */
+  background: url("action21.webp") center/cover no-repeat; /* ← صورتك هنا */
   border-radius: 1rem;
   color: #fff;
   overflow: hidden;
@@ -968,6 +968,35 @@ body {
 
 /* Responsive Design */
 
+.pricing-image {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* لتوسيط الصورة داخل الحاوية */
+  margin-bottom: 1rem;
+}
+
+.pricing-image img {
+  width: 100%;
+  max-width: 350px;   /* الحد الأقصى للصورة */
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* تأثير بسيط عند المرور */
+.pricing-image img:hover {
+  transform: scale(1.05);
+}
+
+
+
+/* الشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+ 
+}
+
+
 
    /* footer */
 
@@ -1178,6 +1207,11 @@ body {
   }
 }
 
+.pricing-image img {
+    max-width: 100%;  /* تملأ عرض البطاقة بالكامل */
+    border-radius: 15px;
+  }
+
 
 @media (max-width: 480px) {
   .footer-grid {
@@ -1229,6 +1263,12 @@ body {
   .film-item {
     width: 120px;
     height: 120px;
+  }
+
+   .pricing-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
   }
 }
 
@@ -1304,26 +1344,28 @@ body {
                 
   
 
-                <div class="film-item"><img src="action1.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action2.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action3.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action4.jpg" alt="action1" width="200" height="300"></div> 
-                <div class="film-item"><img src="action5.jpg" alt="action1" width="200" height="300"></div> 
-                <div class="film-item"><img src="action6.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action17.webp" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action2.webp" alt="action2" width="200" height="300"></div>
+                <div class="film-item"><img src="action3.webp" alt="action3" width="200" height="300"></div>
+                <div class="film-item"><img src="action4.webp" alt="action3" width="200" height="300"></div>                               
+                <div class="film-item"><img src="action5.webp" alt="action5" width="200" height="300"></div> 
+                <div class="film-item"><img src="action6.webp" alt="action6" width="200" height="300"></div> 
             </div>
             <div class="filmstrip filmstrip-2">
-                <div class="film-item"><img src="action7.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action8.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action9.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action10.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action11.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action12.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action7.webp" alt="action7" width="200" height="300"></div>                          
+                 <div class="film-item"><img src="action8.webp" alt="action8" width="200" height="300"></div>
+                <div class="film-item"><img src="action9.webp" alt="action9" width="200" height="300"></div>
+                <div class="film-item"><img src="action10.webp" alt="action10" width="200" height="300"></div>
+                <div class="film-item"><img src="action11.webp" alt="action11" width="200" height="300"></div>
+                <div class="film-item"><img src="action12.webp" alt="action12" width="200" height="300"></div>
             </div>
             <div class="filmstrip filmstrip-3">
-                <div class="film-item"><img src="action13.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action14.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action15.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action16.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action17.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action18.jpg" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action13.webp" alt="action13" width="200" height="300"></div>
+                <div class="film-item"><img src="action14.webp" alt="action14" width="200" height="300"></div>
+                <div class="film-item"><img src="action15.webp" alt="action15" width="200" height="300"></div>
+                <div class="film-item"><img src="action16.webp" alt="action16" width="200" height="300"></div>
+                <div class="film-item"><img src="action17.webp" alt="action17" width="200" height="300"></div>
+                <div class="film-item"><img src="action18.webp" alt="action18" width="200" height="300"></div>
             </div>
         </div>
 
@@ -1407,7 +1449,7 @@ body {
                         <span class="stats-number">500K</span>
                     </div>
                     <div class="google-rating">
-                        <img src="action20.png" alt="Google">
+                        <img src="action20.webp" alt="Google">
                                                               <!-- <span class="rating-text">Ratings 4.7</span> -->
                     </div>
                     <div class="device-image">
@@ -1458,7 +1500,7 @@ body {
 
     <div class="content-text">
            <div class="content-image">
-                 <img src="action28.jpg" alt="action1" >
+                 <img src="action28.webp" alt="action1" >
                </div>
               
       <span class="label">OUR CONTENT</span>
@@ -1483,11 +1525,11 @@ body {
                 
   
 
-                <div class="film-item"><img src="action1.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action2.jpg" alt="action1" width="200" height="300"></div>
-                <div class="film-item"><img src="action3.jpg" alt="action1" width="200" height="300"></div>                                <div class="film-item"><img src="action4.jpg" alt="action1" width="200" height="300"></div> 
-                <div class="film-item"><img src="action5.jpg" alt="action1" width="200" height="300"></div> 
-                <div class="film-item"><img src="action6.jpg" alt="action1" width="200" height="300"></div> 
+                <div class="film-item"><img src="action1.webp" alt="action1" width="200" height="300"></div>
+                <div class="film-item"><img src="action2.webp" alt="action2" width="200" height="300"></div>
+                <div class="film-item"><img src="action3.webp" alt="action3" width="200" height="300"></div>                                <div class="film-item"><img src="action4.webp" alt="action4" width="200" height="300"></div> 
+                <div class="film-item"><img src="action5.webp" alt="action5" width="200" height="300"></div> 
+                <div class="film-item"><img src="action6.webp" alt="action6" width="200" height="300"></div> 
             </div>
            </div>
     </section>
@@ -1502,8 +1544,8 @@ body {
             <div class="pricing-grid">
                 <div class="pricing-card" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
-                    <div class="pricing-image">
-                         <img src="action22.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
+                    <div class="pricing-image" >
+                         <img src="action22.webp" alt="action22"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
                     </div>
                     <div class="pricing-duration">3 Months</div>
                     <div class="pricing-price">$34.99</div>
@@ -1521,7 +1563,7 @@ body {
                 <div class="pricing-card featured" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
                     <div class="pricing-image">
-                       <img src="action23.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                       <img src="action32.webp" alt="action23">
                     </div>
                     <div class="pricing-duration">6 Months</div>
                     <div class="pricing-price">$54.99</div>
@@ -1540,7 +1582,7 @@ body {
                   <div class="pricing-card featured" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
                        <div class="pricing-image">
-                       <img src="action24.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                       <img src="action24.webp" alt="action24">
                     </div>
                     <div class="pricing-duration">6 Months</div>
                     <div class="pricing-price">$54.99</div>
@@ -1566,7 +1608,7 @@ body {
                 <div class="pricing-card" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
                     <div class="pricing-image">
-                         <img src="action25.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
+                         <img src="action31.webp" alt="action25"> <!-- <div class="image-placeholder">Your Image Here</div>  -->
                     </div>
                     <div class="pricing-duration">3 Months</div>
                     <div class="pricing-price">$34.99</div>
@@ -1584,12 +1626,7 @@ body {
                 <div class="pricing-card featured" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
                     <div class="pricing-image">
-                       <img src="action26.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;  ">
-
-
-
-     
-
+                       <img src="action26.webp" alt="action26">
                     </div>
                     <div class="pricing-duration">6 Months</div>
                     <div class="pricing-price">$54.99</div>
@@ -1608,7 +1645,7 @@ body {
                   <div class="pricing-card featured" style="text-align:center;">
                     <div class="pricing-header">Get Ignite Streaming For $5/Month</div>
                        <div class="pricing-image">
-                       <img src="action27.jpg" style="width:300px; height: 170px; align-items: center; border-radius: 40px;">
+                       <img src="action29.webp" alt="action27">
                     </div>
                     <div class="pricing-duration">6 Months</div>
                     <div class="pricing-price">$54.99</div>
