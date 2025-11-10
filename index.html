@@ -1421,23 +1421,13 @@ body {
                              })
 
 
-                        menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  menuToggle.classList.toggle("active");
-  document.getElementById("menu-overlay").classList.toggle("active");
-});
 
-document.getElementById("menu-overlay").addEventListener("click", () => {
-  navMenu.classList.remove("active");
-  menuToggle.classList.remove("active");
-  document.getElementById("menu-overlay").classList.remove("active");
-});
 
                 </script>
             </div>
         </div>
     </header>
-<div id="menu-overlay" class="menu-overlay"></div>
+<div id="menu-overlay" class="menu-overlay">
 
     <!-- Hero Section with Filmstrip Background -->
     <section class="hero">
@@ -1847,7 +1837,7 @@ document.getElementById("menu-overlay").addEventListener("click", () => {
   </footer>
 
 
-
+</div>
 
     <script src="script.js">
         
@@ -1903,6 +1893,20 @@ subscribeBtn.addEventListener("click", () => {
 })
 
 
+
+
+
+  menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  menuToggle.classList.toggle("active");
+  document.getElementById("menu-overlay").classList.toggle("active");
+});
+
+document.getElementById("menu-overlay").addEventListener("click", () => {
+  navMenu.classList.remove("active");
+  menuToggle.classList.remove("active");
+  document.getElementById("menu-overlay").classList.remove("active");
+});
     </script>
 </body>
 </html>
