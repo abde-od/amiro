@@ -1410,7 +1410,7 @@ body {
                     <span></span>
                 </button>
 
-                <script type="text/javascript">
+            <!--    <script type="text/javascript">
                   // Mobile Menu Toggle
                        const menuToggle = document.getElementById("menuToggle")
                        const navMenu = document.querySelector(".nav-menu")
@@ -1420,30 +1420,44 @@ body {
                            menuToggle.classList.toggle("active")
                              })
 
+                      
 
 
+                </script>  -->
 
-                </script>
+                <script type="text/javascript">
+  // ===== عناصر الهيدر =====
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+
+  // ===== وظيفة فتح/غلق القائمة =====
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+  });
+
+  // ===== غلق القائمة عند الضغط على أي رابط =====
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuToggle.classList.remove("active");
+    });
+  });
+
+  // ===== غلق القائمة عند الضغط خارجها (overlay) =====
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      navMenu.classList.remove("active");
+      menuToggle.classList.remove("active");
+    }
+  });
+</script>
+
             </div>
         </div>
     </header>
 <div id="menu-overlay" class="menu-overlay">
-  <script type="text/javascript">
-    
-  menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  menuToggle.classList.toggle("active");
-  document.getElementById("menu-overlay").classList.toggle("active");
-});
-
-document.getElementById("menu-overlay").addEventListener("click", () => {
-  navMenu.classList.remove("active");
-  menuToggle.classList.remove("active");
-  document.getElementById("menu-overlay").classList.remove("active");
-});
-    
-  </script>
-
 
 </div>
 
