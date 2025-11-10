@@ -76,7 +76,7 @@ body {
 /* Header Styles */
 .header {
   position: fixed;
-  top: 25px;
+  top: 5px;
   left: 0;
   right: 0;
   background: #1a1410; /*rgba(10, 14, 39, 0.95)*/;
@@ -1203,7 +1203,7 @@ body {
     text-align: center;
   }
 
-  .nav-menu {
+  /*.nav-menu {
     display: none;
     flex-direction: column;
     background: rgba(0,0,0,0.95);
@@ -1215,9 +1215,28 @@ body {
   }
 
   .nav-menu.active {
-    display: flex; /* ← تظهر عند تفعيل الزر */
+    display: flex; 
     background-color: #FFFFF7;
-  }
+  } */
+
+  .nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: rgba(26, 20, 16, 0.95);
+  backdrop-filter: blur(10px);
+  flex-direction: column;
+  align-items: start;
+  padding: 60px 20px;
+  transition: right 0.3s ease;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
 
   .menu-toggle {
     display: flex;
@@ -1234,6 +1253,16 @@ body {
   .header-actions .btn.btn-primary {
     display: none;
   }
+
+  .header-content {
+    gap: 5px;
+    display: flex;
+    justify-content: space-between; /* يجعل العناصر في جهتين */
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+
 }
 
 .pricing-image img {
@@ -1266,7 +1295,11 @@ body {
   }
 
   .header-content {
-    gap: 10px;
+    gap: 5px;
+    display: flex;
+    justify-content: space-between; /* يجعل العناصر في جهتين */
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .logo-text {
