@@ -123,7 +123,7 @@ body {
 }
 
 .nav-link {
-  color: var(--text-secondary);
+  color: var(--text-secondary); 
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
@@ -304,12 +304,13 @@ body {
 }
 
 .filmstrip-container {
-  position: absolute;
+  position: absolute; 
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
+  gap: 1px;
 }
 
 .filmstrip {
@@ -1215,6 +1216,7 @@ body {
 
   .nav-menu.active {
     display: flex; /* ← تظهر عند تفعيل الزر */
+    background-color: #FFFFF7;
   }
 
   .menu-toggle {
@@ -1228,6 +1230,9 @@ body {
   .film-item img {
     max-width: 120px;
     border-radius: 10px;
+  }
+  .header-actions .btn.btn-primary {
+    display: none;
   }
 }
 
@@ -1261,7 +1266,7 @@ body {
   }
 
   .header-content {
-    gap: 15px;
+    gap: 10px;
   }
 
   .logo-text {
@@ -1298,6 +1303,9 @@ body {
   .film-item img {
     max-width: 90px;
     border-radius: 8px;
+  }
+  .header-actions .btn.btn-primary {
+    display: none;
   }
 }
 
@@ -1387,7 +1395,7 @@ body {
                 <div class="film-item"><img src="action10.webp" alt="action10" ></div>
                 <div class="film-item"><img src="action11.webp" alt="action11" ></div>
                 <div class="film-item"><img src="action12.webp" alt="action12" ></div>
-            </div>
+            </div>  
             <div class="filmstrip filmstrip-3">
                 <div class="film-item"><img src="action13.webp" alt="action13" ></div>
                 <div class="film-item"><img src="action14.webp" alt="action14" ></div>
