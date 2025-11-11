@@ -499,6 +499,12 @@ body {
   position: relative;
   padding: 80px 20px;
 }*/
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -512,16 +518,18 @@ body {
   text-align: center;
   position: relative;
 
-  padding: 8vh 5vw; /* أكثر مرونة مع الشاشات */
+  padding: 8vh 5vw; 
 }
 
-/* تحسين على الشاشات الصغيرة جدًا */
+
 @media (max-width: 600px) {
   .hero-section {
     padding: 12vh 5vw;
     background-position: center top; /* مثال لتعديل الخلفية */
   }
 }
+
+
 
 
 
@@ -936,83 +944,244 @@ body {
   flex-shrink: 0;
 }
 
+/* ===== قسم العرض العام ===== */
+.about-visual {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  padding: 5% 3%;
+  box-sizing: border-box;
+  color: #fff;
+  background: radial-gradient(circle at top left, #111, #000); /* خلفية فاخرة */
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير خفيف من الوميض الذهبي بالخلفية */
 .about-visual {
   position: relative;
-  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  overflow: hidden;
 }
 
-.stats-card {
+.about-visual::before {
+  content: "";
   position: absolute;
-  padding: 20px;
-  border-radius: 12px;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+  animation: rotateGlow 30s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== حاوية البطاقات ===== */
+.stats-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-weight: 700;
+  gap: 1.5rem;
+  z-index: 1;
 }
 
-.stats-card-1 {
-  background: var(--accent-yellow);
-  color: #333;
-  top: 20px;
-  right: 40px;
-  width: 140px;
+/* ===== بطاقات الإحصائيات ===== */
+.stats-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(145deg, #1b1b1b, #0e0e0e);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  min-width: 200px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
+/* تفاعل فخم عند المرور بالماوس */
+.stats-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.25);
+  background: linear-gradient(145deg, #222, #111);
+}
+
+/* ===== النصوص داخل البطاقات ===== */
 .stats-label {
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  display: block;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   opacity: 0.8;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .stats-number {
-  font-size: 32px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+  transition: color 0.3s ease;
+  line-height: 1.2;
 }
 
-.stats-card-2 {
-  background: var(--accent-green);
-  color: #333;
-  bottom: 100px;
-  left: 0;
-  width: 140px;
+.stats-card:hover .stats-number {
+  color: #fff8d5;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
 }
 
-.google-rating {
-  position: absolute;
-  bottom: 40px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.rating-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
+/* ===== صورة الجهاز (جانب البطاقات) ===== */
 .device-image {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 350px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(230, 57, 70, 0.2);
+  z-index: 1;
+  flex-shrink: 0;
 }
 
 .device-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 420px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
 }
+
+.device-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2);
+}
+
+/* ===== استجابة الشاشات الكبيرة ===== */
+@media (min-width: 1025px) {
+  .about-visual {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  
+  .stats-card {
+    padding: 2rem 2.5rem;
+  }
+}
+
+/* ===== استجابة للأجهزة اللوحية ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .about-visual {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .stats-card {
+    min-width: 180px;
+    padding: 1.25rem 1.75rem;
+  }
+  
+  .device-image img {
+    max-width: 350px;
+  }
+}
+
+/* ===== استجابة للهواتف والأجهزة الصغيرة ===== */
+@media (max-width: 768px) {
+  .about-visual {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+  }
+  
+  .stats-container {
+    width: 100%;
+    gap: 1.25rem;
+  }
+  
+  .stats-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+  }
+  
+  .device-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .device-image img {
+    max-width: 90%;
+  }
+}
+
+/* ===== استجابة للهواتف الصغيرة جداً ===== */
+@media (max-width: 480px) {
+  .about-visual {
+    padding: 1rem 0.75rem;
+    gap: 1.5rem;
+  }
+  
+  .stats-card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+  }
+  
+  .stats-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .stats-number {
+    font-size: 1.75rem;
+  }
+  
+  .device-image img {
+    max-width: 95%;
+    border-radius: 10px;
+  }
+  
+  /* تقليل تأثير الـ hover على الأجهزة الصغيرة */
+  .stats-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* ===== تحسينات للأداء ===== */
+@media (prefers-reduced-motion: reduce) {
+  .stats-card,
+  .device-image img,
+  .about-visual::before {
+    animation: none;
+    transition: none;
+  }
+  
+  .stats-card:hover,
+  .device-image img:hover {
+    transform: none;
+  }
+}
+
+/* ===== تحسين للشاشات عالية الدقة ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .stats-card {
+    border-width: 0.5px;
+  }
+}
+
+
 
 /* Responsive Design */
 
@@ -1600,15 +1769,13 @@ body {
                         <span class="stats-number">500K</span>
                     </div>
                     <div class="google-rating">
-                        <img src="action20.webp" alt="Google">
-                                                              <!-- <span class="rating-text">Ratings 4.7</span> -->
+                        
+                                                                <!--<img src="action20.webp" alt="Google"> -->
                     </div>
                     <div class="device-image">
                         
                         <img src="tvremote.jpg" alt="TV Remote">
                     
-
-
                     </div>
                 </div>
             </div>
