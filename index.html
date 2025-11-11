@@ -486,19 +486,44 @@ body {
   flex-wrap: wrap;
 }
 
-/*hero section*/
+/*hero section
 
 .hero-section {
   background: url('action27.webp') center/cover no-repeat;
   color: #fff;
   width: auto;
-  min-height: 100vh; /*  الشاشة كاملة */
+  min-height: 100vh; 
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
   padding: 80px 20px;
+}*/
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: url('action27.webp') center/cover no-repeat;
+  color: #fff;
+
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+
+  padding: 8vh 5vw; /* أكثر مرونة مع الشاشات */
 }
+
+/* تحسين على الشاشات الصغيرة جدًا */
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 12vh 5vw;
+    background-position: center top; /* مثال لتعديل الخلفية */
+  }
+}
+
+
 
 .hero-section::before {
   content: "";
@@ -1794,7 +1819,7 @@ body {
     <section class="hero">
     <div class="container">
       
-        <div class="hero-section">
+<div class="hero-section">
   <div class="hero-content">
     <span class="label">TESTING</span>
     <h1 class="section-title">Start now. Don't hesitate to test our service</h1>
