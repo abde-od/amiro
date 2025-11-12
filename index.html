@@ -85,7 +85,7 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(230, 57, 70, 0.1);
   z-index: 1000;
-  padding: 30px 30px;
+  padding: 15px 15px;
 }
 
 /*.header-content {
@@ -121,19 +121,25 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 800;
-}
+} 
 
 .nav-menu {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   flex: 1;
 }
 
 .nav-link {
+  display: flex;
+  gap: 15px;
   color: var(--text-secondary); 
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
+  justify-content: center;
+  
+  flex: 1;
+  
 }
 
 .nav-link:hover {
@@ -802,6 +808,7 @@ body, html {
   overflow: hidden;
   padding: 2rem 1.5rem;
   z-index: 0;
+   
 }
 .pricing-card::before {
   content: "";
@@ -814,6 +821,8 @@ body, html {
 .pricing-card * {
   position: relative;
   z-index: 2;
+
+
 }
 
 .pricing-card.featured {
@@ -949,7 +958,6 @@ body, html {
   height: 500px;
 }
 
-/* ===== بطاقات الإحصائيات ===== */
 .stats-card {
   position: absolute;
   padding: 20px;
@@ -958,10 +966,8 @@ body, html {
   flex-direction: column;
   gap: 8px;
   font-weight: 700;
-  transition: all 0.3s ease;
 }
 
-/* البطاقة 1 */
 .stats-card-1 {
   background: var(--accent-yellow);
   color: #333;
@@ -970,16 +976,6 @@ body, html {
   width: 140px;
 }
 
-/* البطاقة 2 */
-.stats-card-2 {
-  background: var(--accent-green);
-  color: #333;
-  bottom: 100px;
-  left: 0;
-  width: 140px;
-}
-
-/* نصوص البطاقة */
 .stats-label {
   font-size: 11px;
   letter-spacing: 1px;
@@ -991,7 +987,14 @@ body, html {
   font-size: 32px;
 }
 
-/* Google rating */
+.stats-card-2 {
+  background: var(--accent-green);
+  color: #333;
+  bottom: 100px;
+  left: 0;
+  width: 140px;
+}
+
 .google-rating {
   position: absolute;
   bottom: 40px;
@@ -1010,7 +1013,6 @@ body, html {
   color: var(--text-secondary);
 }
 
-/* صورة الجهاز */
 .device-image {
   position: absolute;
   bottom: 0;
@@ -1028,56 +1030,6 @@ body, html {
   height: 100%;
   object-fit: cover;
 }
-
-/* ===== استجابة الشاشات ===== */
-@media (max-width: 1024px) {
-  .about-visual {
-    height: auto;
-    padding-bottom: 50px; /* مساحة للبطاقات السفلية */
-  }
-
-  .stats-card-1,
-  .stats-card-2,
-  .google-rating {
-    position: relative;
-    top: auto;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    margin: 15px auto;
-    width: 80%;
-  }
-
-  .device-image {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    width: 75%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .stats-number {
-    font-size: 28px;
-  }
-
-  .stats-label {
-    font-size: 10px;
-  }
-
-  .device-image {
-    width: 90%;
-    height: auto;
-  }
-}
-
 
 /* Responsive Design */
 
@@ -1237,6 +1189,7 @@ body, html {
 
   .pricing {
     padding: 2rem 1rem;
+    transition: all 0.2s;
   }
 
   .pricing h2 {
@@ -1245,6 +1198,7 @@ body, html {
 
   .pricing-card {
     text-align: center;
+    transition: all 0.2s;
   }
 
   .pricing-card.featured {
@@ -1326,7 +1280,7 @@ body, html {
   backdrop-filter: blur(10px);
   flex-direction: column;
   align-items: start;
-  padding: 60px 20px;
+  padding: 40px 8px;
   transition: right 0.3s ease;
 }
 
@@ -1477,12 +1431,12 @@ body, html {
                 
 
                 <div class="header-actions">
-                    <button class="icon-btn">
+                  <!--  <button class="icon-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
-                    </button>
+                    </button> -->
                     <button class="icon-btn cart-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <circle cx="9" cy="21" r="1"></circle>
@@ -1673,13 +1627,9 @@ body, html {
                         <img src="tvremote.jpg" alt="TV Remote">
                     
                     </div>
-
-                    
                 </div>
-
             </div>
         </div>
-
     </section>
 
 
@@ -1752,10 +1702,7 @@ body, html {
 
            </div>
     </section>
-
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+<section class="pricing" id="pricing">
         <div class="container">
           <div class="content-text" style=" display: flex; justify-content: center;"  >  <span class="label" >PRICING PLANS</span></div>
             <h2>Our Golden Pricing Plans</h2>
@@ -1771,7 +1718,10 @@ body, html {
                     <p class="pricing-note">No Auto-renew</p>
                     <ul class="pricing-features">
                         <li> Live TV and EPG Guide  <span class="check">✓</span></li>
-                        <li> Movies and VOD Shows    <span class="check">✓</span></li>
+                 
+
+    <!-- Pricing Section -->
+           <li> Movies and VOD Shows    <span class="check">✓</span></li>
                         <li> Compatible with all devices<span class="check">✓</span></li>
                         <li> Anti-Freeze Technology  <span class="cross">✗</span></li>
                         <li> PPV and Sports Events  <span class="cross">✗</span></li>
@@ -1912,10 +1862,6 @@ body, html {
 </section>
 
 
-
-
-
-
   <footer>
     <div class="footer-container">
       <div class="footer-grid">
@@ -1967,6 +1913,9 @@ body, html {
 
     <script src="script.js">
         
+
+                             
+
 // Close menu when a link is clicked
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", () => {
@@ -2015,9 +1964,10 @@ subscribeBtn.addEventListener("click", () => {
   // Add your subscription logic here
 })
 
+
+
+
+
     </script>
-
-
-        
 </body>
 </html>
