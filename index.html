@@ -1352,29 +1352,48 @@ body, html {
 }
 
 .about-visual {
-    display: flex; /* أضف هذا السطر */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 40px 6%;
+    padding: 20px 4%;
 }
 
 .stats-card {
     width: 100%;
     max-width: 400px;
-    margin: 10px auto;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     order: 1; /* البطاقات أولاً */
+    margin: 10px 0;
+}
+
+.stats-number {
+    font-size: 1.4rem;
+    display: block;
+}
+
+.stats-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    display: block;
 }
 
 .google-rating {
-    position: static;
-    margin-top: 15px;
     order: 2; /* التقييم ثانياً */
+    margin-top: 15px;
 }
 
 .device-image {
     order: 3; /* الصورة أخيراً */
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.device-image img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
 }
 
 
@@ -1493,7 +1512,6 @@ body, html {
 }
 
 .device-image img {
-  order: 3;
     width: 90%;
     max-width: 400px;
     border-radius: 10px;
