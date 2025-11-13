@@ -1453,33 +1453,50 @@ body, html {
     display: none;
   }
 
-   .about-visual {
+ .about-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px 4%;
-  }
+}
 
-  .stats-card {
+.stats-card {
     width: 100%;
+    max-width: 400px;
     padding: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
+    order: 1; /* البطاقات أولاً */
+    margin: 10px 0;
+}
 
-  .stats-number {
+.stats-number {
     font-size: 1.4rem;
-  }
+    display: block;
+}
 
-  .stats-label {
+.stats-label {
     font-size: 0.75rem;
     letter-spacing: 0.5px;
-  }
+    display: block;
+}
 
-  .device-image img {
-    width: 90%;
-    border-radius: 10px;
-  }
-
-  .google-rating {
+.google-rating {
+    order: 2; /* التقييم ثانياً */
     margin-top: 15px;
-  }
+}
+
+.device-image {
+    order: 3; /* الصورة أخيراً */
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.device-image img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+}
 }
 
 
