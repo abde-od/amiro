@@ -1023,6 +1023,7 @@ body, html {
   object-fit: cover;
 }
 
+
 /* Responsive Design */
 
 .pricing-image {
@@ -1165,6 +1166,26 @@ body, html {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+
+  .about-visual {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 8%;
+  }
+
+  .stats-card {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .device-image {
+    margin-top: 30px;
+  }
+
+  .google-rating {
+    position: static;
+    margin-top: 20px;
   }
 }
 
@@ -1331,6 +1352,8 @@ body, html {
 
 }
 
+
+
 }
 
 .pricing-image img {
@@ -1405,6 +1428,51 @@ body, html {
   .header-actions .btn.btn-primary {
     display: none;
   }
+
+ .about-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 4%;
+}
+
+.stats-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    order: 1; /* البطاقات أولاً */
+    margin: 10px 0;
+}
+
+.stats-number {
+    font-size: 1.4rem;
+    display: block;
+}
+
+.stats-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.google-rating {
+    order: 2; /* التقييم ثانياً */
+    margin-top: 15px;
+}
+
+.device-image {
+    order: 3; /* الصورة أخيراً */
+    margin-top: 20px;
+    width: 90%;
+    text-align: center;
+}
+
+.device-image img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+}
 }
 
 
@@ -1458,7 +1526,7 @@ body, html {
                     <span></span>
                 </button>
 
-                    
+
                 </div>
 
 
@@ -1617,25 +1685,22 @@ body, html {
                     <button class="rotating-border-btn" onclick="window.open('https://wa.me/+213798262698', '_blank')"> <span>Subscribe Now </span></button>
                 </div>
 
-                <div class="about-visual">
-                    <div class="stats-card stats-card-1">
-                        <span class="stats-label">ACTIVE SUBSCRIPTION</span>
-                        <span class="stats-number">5.3K</span>
-                    </div>
-                    <div class="stats-card stats-card-2">
-                        <span class="stats-label">FIVE STAR REVIEWS</span>
-                        <span class="stats-number">500K</span>
-                    </div>
-                    <div class="google-rating">
-                        
-                                                                <!--<img src="action20.webp" alt="Google"> -->
-                    </div>
-                    <div class="device-image">
-                        
-                        <img src="tvremote.jpg" alt="TV Remote">
-                    
-                    </div>
-                </div>
+               <div class="about-visual">
+    <div class="stats-card stats-card-1">
+        <span class="stats-label">ACTIVE SUBSCRIPTION</span>
+        <span class="stats-number">5.3K</span>
+    </div>
+    <div class="stats-card stats-card-2">
+        <span class="stats-label">FIVE STAR REVIEWS</span>
+        <span class="stats-number">500K</span>
+    </div>
+    <div class="google-rating">
+        <img src="action20.webp" alt="Google">
+    </div>  
+    <div class="device-image">
+        <img src="tvremote.jpg" alt="TV Remote">
+    </div>
+</div><!---->
             </div>
         </div>
     </section>
