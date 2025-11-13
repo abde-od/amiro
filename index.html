@@ -1281,6 +1281,7 @@ body, html {
 
   .menu-toggle {
     display: flex;
+    order: 1;
   }
 
   .menu-toggle.active + .nav-menu {
@@ -1295,7 +1296,9 @@ body, html {
     display: none;
   }
   .header{
+    justify-content: flex-end;
     padding: 15px 8px;
+    gap: 10px;
   }
 
   .header-content {
@@ -1320,8 +1323,9 @@ body, html {
   display: block;
 }
 
+
 .header-actions{
-  
+  order: 2;
   justify-content: flex-end;
 
 
