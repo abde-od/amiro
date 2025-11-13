@@ -1352,29 +1352,30 @@ body, html {
 }
 
 .about-visual {
+    display: flex; /* أضف هذا السطر */
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 40px 6%;
-  }
+}
 
-  .stats-card {
+.stats-card {
     width: 100%;
     max-width: 400px;
     margin: 10px auto;
-  }
+    order: 1; /* البطاقات أولاً */
+}
 
-  /* الصورة تكون أسفل البطاقات */
-  .device-image {
-    order: 3;
-    margin-top: 30px;
-  }
-
-  .google-rating {
+.google-rating {
     position: static;
     margin-top: 15px;
-    order: 2;
-  }
+    order: 2; /* التقييم ثانياً */
+}
+
+.device-image {
+    order: 3; /* الصورة أخيراً */
+    margin-top: 30px;
+}
 
 
 }
