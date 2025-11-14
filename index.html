@@ -945,19 +945,25 @@ body, html {
   flex-shrink: 0;
 }
 
+/* ==========  الأساسيات  ========== */
+
 .about-visual {
   position: relative;
-  height: 500px;
+  padding: 40px 20px;
+  min-height: 520px;
 }
+
+/* ==========  بطاقات الإحصائيات  ========== */
 
 .stats-card {
   position: absolute;
-  padding: 20px;
+  padding: 18px 20px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   font-weight: 700;
+  width: 140px;
 }
 
 .stats-card-1 {
@@ -965,32 +971,32 @@ body, html {
   color: #333;
   top: 20px;
   right: 40px;
-  width: 140px;
+}
+
+.stats-card-2 {
+  background: var(--accent-green);
+  color: #333;
+  bottom: 120px;
+  left: 20px;
 }
 
 .stats-label {
   font-size: 11px;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .stats-number {
   font-size: 32px;
 }
 
-.stats-card-2 {
-  background: var(--accent-green);
-  color: #333;
-  bottom: 100px;
-  left: 0;
-  width: 140px;
-}
+
+/* ==========  تقييم Google  ========== */
 
 .google-rating {
   position: absolute;
   bottom: 40px;
-  right: 20px;
+  right: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1005,13 +1011,16 @@ body, html {
   color: var(--text-secondary);
 }
 
+
+/* ==========  صورة الجهاز  ========== */
+
 .device-image {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 280px;
-  height: 350px;
+  width: 300px;
+  height: 360px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(230, 57, 70, 0.2);
@@ -1022,6 +1031,79 @@ body, html {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* ===========================================================
+     🎯 الاستجابة للشاشات المتوسطة (تابلت)
+   =========================================================== */
+
+@media (max-width: 900px) {
+  .about-visual {
+    min-height: 480px;
+  }
+
+  .stats-card {
+    width: 130px;
+  }
+
+  .device-image {
+    width: 240px;
+    height: 300px;
+  }
+
+  .stats-card-1 {
+    right: 20px;
+  }
+
+  .stats-card-2 {
+    left: 20px;
+    bottom: 90px;
+  }
+
+  .google-rating {
+    right: 20px;
+  }
+}
+
+
+/* ===========================================================
+     📱 الاستجابة للشاشات الصغيرة (موبايل)
+     — تحويل التصميم من overlay إلى ستاك (stack)
+   =========================================================== */
+
+@media (max-width: 600px) {
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  /* إزالة التموضع المطلق */
+  .stats-card,
+  .google-rating,
+  .device-image {
+    position: static;
+    transform: none;
+  }
+
+  .stats-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .device-image {
+    width: 90%;
+    height: auto;
+  }
+
+  .google-rating {
+    width: auto;
+    margin-top: 10px;
+  }
+}
+
 
 
 /* Responsive Design */
@@ -1356,32 +1438,7 @@ body, html {
 
 }
 
-@media (max-width: 600px) {
-  .stats-card {
-    position: static;
-    width: 70%;
-  }
 
-  .google-rating {
-    position: static;
-    margin-top: 20px;
-  }
-
-  .device-image {
-    position: static;
-    transform: none;
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .about-visual {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-}
 
 
 .pricing-image img {
