@@ -949,7 +949,7 @@ body, html {
 
 .about-visual {
   position: relative;
-  padding: 40px 20px;
+  padding: 40px 10px;
   min-height: 520px;
 }
 
@@ -961,7 +961,8 @@ body, html {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
+  text-align: center;
   font-weight: 700;
   width: 140px;
 }
@@ -969,15 +970,16 @@ body, html {
 .stats-card-1 {
   background: var(--accent-yellow);
   color: #333;
-  top: 20px;
-  right: 40px;
+  top: 15px;
+  right: 220px;
 }
 
 .stats-card-2 {
   background: var(--accent-green);
   color: #333;
-  bottom: 120px;
-  left: 20px;
+  bottom: 300px;
+  left: 100px;
+  z-index: 2;
 }
 
 .stats-label {
@@ -995,15 +997,14 @@ body, html {
 
 .google-rating {
   position: absolute;
-  bottom: 40px;
-  right: 30px;
+  top: 525px;
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px 20px;
+ /*background: rgba(255, 255, 255, 0.05);*/ 
+ /*  padding: 15px 20px;*/
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .rating-text {
@@ -1782,9 +1783,9 @@ body, html {
         <span class="stats-label">FIVE STAR REVIEWS</span>
         <span class="stats-number">500K</span>
     </div>
-    <div class="google-rating">
+   <!-- <div class="google-rating">
         <img src="action20.webp" alt="Google">
-    </div>  
+    </div>  --> 
     <div class="device-image">
         <img src="tvremote.jpg" alt="TV Remote">
     </div>
