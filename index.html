@@ -686,7 +686,33 @@ body, html {
 
 
 
-/* image place holder */
+.slider-wrap-custom {
+  overflow-x: scroll;
+  white-space: nowrap;
+  cursor: grab;
+  scrollbar-width: none;
+  position: relative;
+  animation: scroll-left 10s linear infinite;
+}
+
+.slider-wrap-custom::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-track-custom {
+  display: inline-flex;
+  gap: 20px;
+  min-width: 1200px; /* 🔥 أهم خطوة: إجبار الشريط أن يكون أعرض من الشاشة */
+}
+
+.slide-item-custom img {
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+
+
 
 
 /*    content text   */
@@ -1066,47 +1092,6 @@ body, html {
 }
 
 
-/* ===========================================================
-     📱 الاستجابة للشاشات الصغيرة (موبايل)
-     — تحويل التصميم من overlay إلى ستاك (stack)
-   =========================================================== */
-
-/*@media (max-width: 600px) {
-  .about-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    min-height: auto;
-  }
-
-  
-  .stats-card,
-  .google-rating,
-  .device-image {
-    position: static;
-    transform: none;
-    align-items: center;
-    width: 100%;
-
-  }
-
-  .stats-card {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .device-image {
-    width: 80%;
-    height: auto;
-  }
-
-  .google-rating {
-    width: auto;
-    margin-top: 10px;
-  }
-} */
-
 
 
 /* Responsive Design */
@@ -1464,7 +1449,7 @@ body, html {
   }
 
   .device-image {
-    width: 70%;  /* مناسبة أكثر للتابلت */
+    width: 85%;  /* مناسبة أكثر للتابلت */
     height: auto;
   }
 
@@ -1474,7 +1459,9 @@ body, html {
   
 }
 
-
+.slide-item-custom img {
+    width: 45%;  /* أكبر قليلاً لتناسب الهواتف */
+  }
 
 
 }
@@ -1555,7 +1542,6 @@ body, html {
     display: none;
   }
 
-@media (max-width: 480px) {
   .about-visual {
     flex-direction: column;
     align-items: center;
@@ -1585,7 +1571,11 @@ body, html {
     margin-top: 10px;
     width: auto;
   }
-}
+
+   .slide-item-custom img {
+    width: 70%;
+  }
+
 
 }
 
@@ -1872,23 +1862,90 @@ body, html {
         </div>
     </section>
         <span> <h1 class="" style="text-align: center;" >Enjoy watching movies,series,shows,anim and more</h1></span>
-    <section class="hero">
-      
-          
-        <div class="filmstrip-container">
-           <div class="filmstrip filmstrip-1--">
+    <section class="section-hero-custom">
+    <div class="slider-wrap-custom">
+        <div class="slider-track-custom">
+
+            <div class="slide-item-custom"><img src="action14.webp" alt="action1"></div>
+            <div class="slide-item-custom"><img src="action2.webp" alt="action2"></div>
+            <div class="slide-item-custom"><img src="action3.webp" alt="action3"></div>
+            <div class="slide-item-custom"><img src="action4.webp" alt="action4"></div>
+            <div class="slide-item-custom"><img src="action5.webp" alt="action5"></div>
+            <div class="slide-item-custom"><img src="action6.webp" alt="action6"></div>
+            <div class="slide-item-custom"><img src="action2.webp" alt="action2"></div>
+            <div class="slide-item-custom"><img src="action4.webp" alt="action4"></div>
+
+        </div>
+    </div>
+    <script>
+const slider = document.querySelector('.slider-wrap-custom');
+let isDown = false;
+let startX;
+let scrollLeft;
+let animationFrame;
+let autoScrollSpeed = 0.5; // السرعة السينمائية
+
+// -----------------------------
+// الحركة السينمائية التلقائية
+// -----------------------------
+function autoScroll() {
+    slider.scrollLeft += autoScrollSpeed;
+
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1) {
+        slider.scrollLeft = 0;
+    }
+
+    animationFrame = requestAnimationFrame(autoScroll);
+}
+
+function startAutoScroll() {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(autoScroll);
+}
+
+function stopAutoScroll() {
+    cancelAnimationFrame(animationFrame);
+}
+
+// -----------------------------
+// السحب بالماوس
+// -----------------------------
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    stopAutoScroll();
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    startAutoScroll();
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    startAutoScroll();
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// -----------------------------
+slider.addEventListener('mouseenter', stopAutoScroll);
+slider.addEventListener('mouseleave', startAutoScroll);
+
+// تشغيل الحركة عند تحميل الصفحة
+startAutoScroll();
+</script>
+
+</section>
 
 
-                 <div class="film-item"><img src="action14.webp" alt="action1"></div>
-                 <div class="film-item"><img src="action2.webp" alt="action2"></div>
-                 <div class="film-item"><img src="action3.webp" alt="action3"></div>
-                 <div class="film-item"><img src="action4.webp" alt="action4"></div>
-                 <div class="film-item"><img src="action5.webp" alt="action5"></div>
-                 <div class="film-item"><img src="action6.webp" alt="action6"></div>
-            </div>
-
-           </div>
-    </section>  
 
 
     <!-- Pricing Section -->
@@ -2155,10 +2212,13 @@ subscribeBtn.addEventListener("click", () => {
   // Add your subscription logic here
 })
 
+</script>
 
 
 
+ 
 
-    </script>
+
+
 </body>
 </html>
