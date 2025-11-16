@@ -1071,7 +1071,7 @@ body, html {
      — تحويل التصميم من overlay إلى ستاك (stack)
    =========================================================== */
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   .about-visual {
     display: flex;
     flex-direction: column;
@@ -1080,7 +1080,7 @@ body, html {
     min-height: auto;
   }
 
-  /* إزالة التموضع المطلق */
+  
   .stats-card,
   .google-rating,
   .device-image {
@@ -1105,7 +1105,7 @@ body, html {
     width: auto;
     margin-top: 10px;
   }
-}
+} */
 
 
 
@@ -1555,51 +1555,38 @@ body, html {
     display: none;
   }
 
-/* .about-visual {
-  position: relative;
-    display: flex;
+@media (max-width: 480px) {
+  .about-visual {
     flex-direction: column;
     align-items: center;
-    padding: 20px 4%;
+    gap: 15px; /* تقليل المسافات */
+    padding: 0 15px;
+  }
+
+  .stats-card,
+  .google-rating,
+  .device-image {
+    width: 100%; /* ملء العرض بالكامل */
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .stats-card {
+    max-width: 280px; /* مناسب للشاشات الصغيرة */
+  }
+
+  .device-image {
+    width: 85%; /* أصغر قليلًا لشاشات 480 */
+    height: auto;
+  }
+
+  .google-rating {
+    margin-top: 10px;
+    width: auto;
+  }
 }
 
-.stats-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    order: 1; 
-    margin: 10px 0;
-}
-
-.stats-number {
-    font-size: 1.4rem;
-    display: block;
-}
-
-.stats-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    display: block;
-}
-
-.google-rating {
-    order: 2; 
-    margin-top: 15px;
-}
-
-.device-image {
-    order: 3; 
-    margin-top: 20px;
-    width: 90%;
-    text-align: center;
-}
-
-.device-image img {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 10px;
-} */
 }
 
 
