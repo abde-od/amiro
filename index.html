@@ -95,11 +95,6 @@ body {
 
   gap: 150px;
 }
-/*.header-content {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-}*/
 
 
 .logo {
@@ -385,13 +380,7 @@ body {
 .film-item img {
 
 
-  /*width: 100%;
-  max-width: 180px;  
-  height: auto;
-  border-radius: 15px;
-  object-fit: cover;
-  transition: transform 0.3s ease;*/
-  
+   
       width: 100%;
   max-width: 1800px;   
   height: auto;
@@ -487,19 +476,7 @@ body {
   flex-wrap: wrap;
 }
 
-/*hero section
 
-.hero-section {
-  background: url('action27.webp') center/cover no-repeat;
-  color: #fff;
-  width: auto;
-  min-height: 100vh; 
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding: 80px 20px;
-}*/
 body, html {
   margin: 0;
   padding: 0;
@@ -744,13 +721,13 @@ body, html {
 
     /*  content section */
 
-    /* القسم الرئيسي */
+    
 .content-section {
   display: flex;
-  align-items: center;        /* توسيط عمودي داخل الصف */
+  align-items: center;        
   justify-content: space-between;
-  gap: 50px;                  /* مسافة بين الصورة والنص */
-  padding: 60px 100px;        /* هوامش داخلية جميلة */
+  gap: 50px;                 
+  padding: 60px 100px;        
  max-width: 1200px;
   margin: 0 auto;
 }
@@ -815,11 +792,6 @@ body, html {
 }
 
 .pricing-card {
-    /*background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: all 0.3s;  */
 
 
   position: relative;
@@ -854,6 +826,7 @@ body, html {
     padding: 1rem;
     text-align: center;
     font-weight: 600;
+    border-radius: 15px;
 }
 
 .pricing-image {
@@ -1064,6 +1037,21 @@ body, html {
      🎯 الاستجابة للشاشات المتوسطة (تابلت)
    =========================================================== */
 
+   @media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-visual {
+    height: 400px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+}
+
 @media (max-width: 900px) {
   .about-visual {
     min-height: 480px;
@@ -1179,20 +1167,7 @@ body, html {
    
 
     /*   responsivity  */
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
 
-  .about-visual {
-    height: 400px;
-  }
-
-  .hero-title {
-    font-size: 42px;
-  }
-}
 
 
 
@@ -1329,22 +1304,6 @@ body, html {
   .footer {
     text-align: center;
   }
-
-  /*.nav-menu {
-    display: none;
-    flex-direction: column;
-    background: rgba(0,0,0,0.95);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-  }
-
-  .nav-menu.active {
-    display: flex; 
-    background-color: #FFFFF7;
-  } */
 
   .nav-menu {
   position: fixed;
@@ -1557,8 +1516,9 @@ body, html {
   }
 
   .device-image {
-    width: 90%; /* أصغر قليلًا لشاشات 480 */
-    height: auto;
+    width: 80%;
+    height: 100%; 
+    /*height: auto; */
   }
 
   .google-rating {
